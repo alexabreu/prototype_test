@@ -11,7 +11,7 @@ Use the following tech stack
 5. Karma, PhantomJS & Jasmine for sample unit tests
 6. Grunt connect to launch the local web server
 
-Issue a pull request for repository https://github.com/kwilding/prototype_test to submit your code
+Create a branch with your name and issue a pull request for repository https://github.com/kwilding/prototype_test to submit your code
 
 Use the included JSON file as your data for the swim lanes. It should be pulled in through an angular service that calls uses an ajax call and parses the json 
 
@@ -62,8 +62,10 @@ unfocused (on/off)
 
 
 Grid:
+
 1. *OPTIONAL* User presses View All on swim lane and goes to the grid page screen
 (static)
 
 Time:
+
 1. *OPTIONAL* Can the time stamp have a blink or slight fade in and out, very subtle
