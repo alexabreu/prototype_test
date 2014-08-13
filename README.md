@@ -28,6 +28,7 @@ Overview:
 interact with multiple swim lanes
 2. Include a maximum of 12 assets in each swim lane
 3. Use swim lane titles: Dynamic
+
 *Second screen Movies Grid is optional*
 
 Swimlanes:
