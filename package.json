@@ -1,0 +1,44 @@
+{
+  "name": "prototype_test",
+  "version": "0.0.1",
+  "description": "Alex Abreu's implementation of the Charter Communications prototype_test.",
+  "main": "index.html",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "grunt connect",
+    "pretest": "npm install",
+    "test": "node node_modules/karma/bin/karma start test/karma.conf.js",
+    "test-single-run": "node node_modules/karma/bin/karma start test/karma.conf.js  --single-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kwilding/prototype_test.git"
+  },
+  "keywords": [
+    "media",
+    "guide",
+    "charter",
+    "prototype"
+  ],
+  "author": "Alex Abreu",
+  "license": "© 2014, Charter Communications",
+  "bugs": {
+    "url": "https://github.com/kwilding/prototype_test/issues"
+  },
+  "homepage": "https://github.com/kwilding/prototype_test",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "karma": "^0.12.16",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-jasmine": "^0.1.5",
+    "less": "^1.7.4",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-less": "^0.11.4",
+    "grunt-contrib-connect": "^0.8.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-uglify": "^0.5.1",
+    "phantomjs": "^1.9.7-15",
+    "karma-phantomjs-launcher": "^0.1.4"
+  }
+}

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" ng-app="charterPrototype">
+<head>
+  <meta charset="utf-8">
+  <title>Media Guide</title>
+  <link rel="stylesheet" href="libraries/css/bootstrap.css">
+  <link rel="stylesheet" href="css/stylesheet.css">
+  <script src="libraries/js/angular.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+<body ng-controller="SwimLanesController" ng-keydown="handleKeyDown($event)">
+
+	
+	
+	<header class="container">
+		<div class="row">
+			<div class="col-md-3" ng-controller="TimeController">
+				<table class="current-time">
+				  <tr>
+						<td class="clock">
+							{{currentTime | date:'shortTime'}}
+						</td>
+						<td class="weather">
+							<div class="weather-icon" ng-style="currentWeatherIconStyle"></div>
+						</td>
+						<td class="temperature">
+							{{currentTemperature}}
+						</td>
+				  </tr>
+				</table>
+			</div>
+			<div class="col-md-6"><h1>Movies</h1></div>
+			<div class="col-md-3">
+				<div class="live-tv-preview">
+				<img src="assets/images/live_tv.png" title="Watch live TV &raquo;"/>
+			</div>
+		</div>
+		
+		<div class="filter-menu">
+			<h3>Filter: </h3>
+			<div class="filter-list-wrapper">
+				<span class="filter-arrow left" ng-click="goToFilter(-1)">< </span>
+				<ul ng-click="activateFilter($event)" class="list-unstyled list-inline filter-list">
+					
+					<li ng-repeat="filter in filterOptions" class="filter-option">{{filter.title}}</li>
+				</ul>
+				<span class="filter-arrow right" ng-click="goToFilter(1)"> ></span>
+			</div>
+		</div>
+	</header>
+
+	<div class="swim-lanes-wrapper">
+		<ul class="swim-lanes list-unstyled" style="{{'margin-top: '+ swimLanes.indexOf(currentSwimLane)*-352+'px;'}}">
+			<li ng-repeat="swimLane in swimLanes" class="swim-lane {{swimLane}}" ng-switch="swimLane">
+					<div class="container">
+						<h2 ng-switch-when="top_rentals">today's top rentals</h2>
+						<h2 ng-switch-when="top_movies">most popular</h2>
+						<h2 ng-switch-default>{{swimLane.replace('_', ' ')}}</h2>
+					</div>
+						<div class="media-wrapper" ng-style="getMediaItemSlideStyle(swimLane)">
+							<ul class="media list-unstyled list-inline" ng-class="{'slide-right': media.data[swimLane].viewAll}" >
+								<li class="view-all" ng-class="{selected: media.data[swimLane].viewAll}">
+									<h3>View All ({{media.data[swimLane].count}})</h3>
+								</li>
+								<li ng-repeat="m in media.data[swimLane].assets | filter:shouldShowMedia" class="media-item" ng-class="{selected: m.selected}" ng-switch="shouldShowAccessControl(m)" ng-mouseLeave="clearMediaSelection(m)" ng-mouseEnter="makeMediaSelection(m)">
+									<img class="poster" ng-src="{{'assets/images/' + m.poster}}" title="Watch {{m.name}} &raquo"/>
+									<div ng-switch-when="true" class="locked"></div>
+								</li>
+							</ul>
+						</div>
+			</li>
+		</ul>
+	</div>
+
+</body>
+</html>

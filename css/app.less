@@ -1,0 +1,276 @@
+@import 'styleguide';
+
+h1 {
+	font-family: Aleo;
+	font-weight: lighter;
+	font-size: 50px;
+	color: @light_gray;
+	text-align: center;
+}
+h2 {
+	font-family: Whitney;
+	font-weight: 100;
+	color: @light_gray;
+	font-size: 26px;
+}
+h3 {
+	font-family: Whitney;
+	font-weight: 100;
+	color: @light_gray;
+	font-size: 22px;
+}
+
+html {
+	background: url('../assets/images/background.jpg') no-repeat center center fixed;
+	background-size: cover;
+	font-family: Whitney;
+	color: @light_gray;
+	font-weight: 100;
+	overflow: hidden;
+	body {
+		background: none;
+	}
+}
+
+.inline {
+	display: inline;
+}
+
+header {
+	position: relative;
+	margin-top: 20px;
+	table.current-time {
+		td {
+			vertical-align: center;
+			padding: 0px 5px;
+		}
+		.clock {
+			font-size: 35px;
+			color: @gray;
+			padding-right: 15px;
+			-webkit-animation: clockAnimation 15s infinite;
+			
+		}
+		.temperature, .weather {
+			font-size: 16px;
+			color: @gray;
+		}
+		.weather-icon {
+			width: 50px;
+			height: 50px;
+			-webkit-filter: grayscale(100%);
+			opacity: 0.3;
+		}
+	}
+	h1 {
+		margin-top: 30px;
+	}
+	.live-tv-preview {
+		margin-bottom: 10px;
+		cursor: pointer;
+		img {
+			transition: all .1s ease;
+		}
+	}
+	.live-tv-preview:hover {
+		img {
+			transform:scale(1.05);
+		}
+	}
+	.filter-menu {
+		clear: both;
+		margin:  0px -7% 0px -10%;
+		padding: 0px 7% 0px 10%;
+		background: linear-gradient(to right, 	rgba(red(@dark_blue), green(@dark_blue), blue(@dark_blue), 0) 2%,
+																						rgba(red(@dark_blue), green(@dark_blue), blue(@dark_blue), .2) 10%,
+																						rgba(red(@dark_blue), green(@dark_blue), blue(@dark_blue), .2) 85%,
+																						rgba(red(@dark_blue), green(@dark_blue), blue(@dark_blue), 0)) 3%;
+		h3 {
+			display: inline-block;
+			margin: 0px 10px;
+			vertical-align: middle;
+		}
+		.filter-list-wrapper {
+			position: relative;
+			width: 220px;
+			display: inline-block;
+			overflow: hidden;
+			vertical-align: middle;
+			.filter-arrow {
+				font-family: Iceland;
+				font-weight: 100;			
+				color: @white;
+				font-size: 26px;
+				margin-right: 5px;
+				position: absolute;
+				bottom: 2px;
+				z-index: 10;
+				margin: 0px;
+				padding: 0px;
+				cursor: pointer;
+			}
+			.filter-arrow.left {
+				left: 3px;				
+			}
+			.filter-arrow.right {
+				right: 3px;
+			}
+		}
+		ul.filter-list {
+			display: inline-block;
+			cursor: pointer;
+			overflow: hidden;
+			vertical-align: middle;
+			width: 600px;
+			margin: 0px;
+			padding: 5px 0px;
+			li {
+				font-family: Whitney;
+				font-weight: 100;
+				color: @light_blue;
+				font-size: 22px;
+				margin: 0px;
+				padding: 0px;
+				width: 220px;
+				text-align: center;
+				display: inline-block;
+			}
+			li:first-child {
+				margin-left: 0px;
+				transition: margin-left .2s;
+			}
+			li.bounce-left {
+				-webkit-animation: bounceLeft .2s 2;
+			}
+			li.bounce-right {
+				-webkit-animation: bounceRight .2s 2;
+			}
+
+		}
+		ul.active {
+			background: @medium_blue;
+			color: @white;
+			li {
+				background: @medium_blue;
+				color: @white;
+			}
+		}
+	}
+}
+
+.swim-lanes-wrapper {
+	overflow: hidden;
+	ul.swim-lanes {
+		overflow: hidden;
+		margin-top: 0px;
+		transition: all .3s ease;
+		li.swim-lane {
+			padding: 0px 0px 40px 0px;
+			background: linear-gradient(to bottom,	rgba(red(@darkest_blue), green(@darkest_blue), blue(@darkest_blue), 0),
+																							rgba(red(@darkest_blue), green(@darkest_blue), blue(@darkest_blue), 1));
+			h2 {
+				text-transform: capitalize;	
+			}
+			.media-wrapper {
+				position: relative;
+				height: 250px;
+				width: 3500px;
+				margin-left: 0px;
+				transition: margin-left .2s ease;
+				ul.media.slide-right {
+					margin-left: 119px;
+				}
+				ul.media {
+					padding: 0px 5px;
+					margin-left: -45px;
+					transition: margin-left .2s ease;
+					li {
+						z-index: 1;
+						position: relative;
+						padding: 0px;
+						margin: 0px;
+						vertical-align: middle;
+					}
+					li.view-all {
+						background: url('../assets/images/icon_arrow_most_popular.png') no-repeat 0px center;
+						width: 154px;
+						height: 231px;
+						background-color: fade(@gray, 10%);
+						border: 5px transparent solid;
+						padding: 1px;
+						transition: all .1s ease;
+						h3 {
+							text-align: center;
+							position: absolute;
+							bottom: 20px;
+							right: 20px;
+						}
+					}
+					li.view-all.selected {
+						border-color: @blue;
+						transform:scale(1.05);
+					}
+					li.media-item {
+						.poster {
+							width: 100%;
+							height: 100%;
+							transition: all .1s ease;
+							border: 5px transparent solid;
+							padding: 1px;
+							background: transparent;
+						}
+						.locked {
+							position: absolute;
+							right: 0px;
+							bottom: 0px;
+							height: 41px;
+							width: 41px;
+							background: url('../assets/images/icon_subscribed_off.png') no-repeat 0px 0px;
+						}
+					}
+					li.media-item.selected {
+						z-index: 2;
+						cursor: pointer;
+						.poster {
+							transform:scale(1.05);
+							border-color: @blue;
+							background: @black;
+						}
+						.locked {
+							background-image: url('../assets/images/icon_subscribed_on.png');
+						}
+					}
+				}
+			}
+		}
+		li.swim-lane.top_rentals {
+			h2 {
+				color: @gold;
+				text-align: center;
+				font-family: Aleo;
+				font-weight: 100;
+				font-size: 30px;
+			}
+		}
+	}
+}
+
+@-webkit-keyframes clockAnimation {
+    0%   {color: @gray;}
+    50%  {color: fade(@gray, 20%)}
+    100% {color: @gray;}
+}
+
+@-webkit-keyframes bounceLeft {
+    0%   {margin-right: 0px;}
+    50%  {margin-right: -5px;}
+    100% {margin-right: 0px;}
+}
+
+@-webkit-keyframes bounceRight {
+    0%   {padding-left: 0px;}
+    50%  {padding-left: 5px;}
+    100% {padding-left: 0px;}
+}
+
+
